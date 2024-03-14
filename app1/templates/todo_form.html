@@ -1,0 +1,25 @@
+
+    <form
+    hx-post="{% url 'create_todo' %}"
+    hx-target="#todo-list"
+    hx-swap="beforeend"
+    hx-on="htmx:afterRequest: this.remove()"
+    novalidate="true"
+>
+
+
+    <div class="row">
+        <div class="col-6 col-md-3">
+            <label for="{{form.name.id_for_label}}">{{form.name.label}}</label>
+            {{form.name}}
+        </div>
+
+        <div class="col-2 align-self-end">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+
+        <div class="col-2 align-self-end">
+            <button class="btn btn-danger" type="button">Close</button>
+        </div>
+    </div>
+</form>
