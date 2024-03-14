@@ -14,7 +14,10 @@ def index(request):
 
 
 def create_todo(request):
-    form = TodosForm(request.POST)
-    if form.is_valid():
-        form.save()
-    return render(request, "todo_partial.html", {"form": form})
+    if request.method == "POST":
+        form = TodosForm(request.POST)
+        if form.is_valid():
+            todo = form.save()
+            return render(request, "todo_partial.html", {"todo": todo})
+
+    return render(request, "todo_form.html", {"form": TodosForm})

@@ -1,13 +1,11 @@
-
-    <form
+<form
     hx-post="{% url 'create_todo' %}"
     hx-target="#todo-list"
     hx-swap="beforeend"
     hx-on="htmx:afterRequest: this.remove()"
+    hx-trigger="click from:#submit-all"
     novalidate="true"
 >
-
-
     <div class="row">
         <div class="col-6 col-md-3">
             <label for="{{form.name.id_for_label}}">{{form.name.label}}</label>
@@ -19,7 +17,7 @@
         </div>
 
         <div class="col-2 align-self-end">
-            <button class="btn btn-danger" type="button">Close</button>
+            <button class="btn btn-danger" type="button" hx-on="click: this.closest('form').remove()">Close</button>
         </div>
     </div>
 </form>

@@ -17,7 +17,14 @@
     </div>
 
     <div class="my-4">
-        <button type="button" class="btn btn-secondary" id="add-todo">Add Todo</button>
+        <button
+                type="button"
+                class="btn btn-success"
+                hx-get="{% url 'create_todo' %}"
+                hx-target="#todo-forms"
+                hx-swap="beforeend"
+        >Add Todo
+        </button>
 
         <button type="button" class="btn btn-primary" id="submit-all">Submit all</button>
     </div>
